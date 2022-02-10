@@ -58,14 +58,19 @@ mongoose
   .then( ()=>{ 
     Recipe.deleteOne(
      {title: {$eq:"Carrot Cake"}})
-     .then(res=> console.log(res))
-     console.log("recipe removed!")
-    })
-
+     //.then(res=> console.log(res))
+     //console.log("recipe removed!")
+     // })
+  
+    .then( ()=>{
+       mongoose.connection.close()
+  })})
 
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
+
+
 
   
 
